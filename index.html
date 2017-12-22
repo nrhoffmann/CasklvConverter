@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="casklvConverter">
+<head>
+    <meta charset="UTF-8">
+    <title>C'asklv Converter</title>
+    <script data-require="angular.js@*" data-semver="1.6.4" src="https://code.angularjs.org/1.6.4/angular.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/services/converter.js"></script>
+    <script src="js/controllers/HomeController.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous" />
+
+</head>
+<body>
+<nav class="navbar navbar-light bg-faded">
+    <h1 class="display-4">C'asklv Converter</h1>
+</nav>
+<br/>
+<div class="container" ng-controller="HomeController">
+    <div class="row justify-content-md-center">
+        <div class="col col-md-8 col-lg-6">
+            <div class="dropdown">
+                <button class="btn btn-lg btn-block btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" disabled>
+                    Volume
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="row justify-content-md-center">
+        <div class="col col-md-8 col-lg-6">
+            <div class="input-group" id="input-options">
+                <span class="input-group-addon">From:</span>
+                <input type="number" class="form-control form-control-lg" ng-model="data.inputField" ng-change="actions.convert()" />
+                <select class="custom-select input-group-addon form-control-lg" ng-model="data.fromType" ng-change="actions.convert()">
+                    <option ng-repeat="type in data.types" ng-value="type">{{type.name}}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-4 offset-4">
+            <button type="button" class="btn btn-lg btn-block btn-secondary" ng-click="actions.swap()">Swap</button>
+        </div>
+    </div>
+    <br/>
+    <div class="row justify-content-md-center">
+        <div class="col-4 col-md-3 col-lg-2">
+            <div class="input-group" id="output-options">
+                <span class="input-group-addon">To:</span>
+                <select class="custom-select input-group-addon form-control-lg" ng-model="data.toType" ng-change="actions.convert()">
+                    <option ng-repeat="type in data.types" ng-value="type">{{type.name}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="col col-md-5 col-lg-4">
+            <div class="input-group" id="output">
+                <span class="input-group-addon">Output:</span>
+                <input type="text" class="form-control form-control-lg" ng-value="data.outputField | number" readonly>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+</body>
+</html>
